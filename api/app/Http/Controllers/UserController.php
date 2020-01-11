@@ -67,4 +67,15 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
     }
+    
+    /**
+     * Show the profile for the given user.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function show($id)
+    {
+        return $user = User::findOrFail($id);
+    }
 }

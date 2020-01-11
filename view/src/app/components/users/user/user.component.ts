@@ -21,4 +21,8 @@ export class UserComponent implements OnInit {
         err => console.log(err)
       );
     }
+    update() {
+      console.log(this.user.id);
+      this.router.navigate(['/edit/', this.user.id]);
+    }
 }

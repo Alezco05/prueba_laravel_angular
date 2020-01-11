@@ -10,6 +10,7 @@ import { UsersComponent } from './components/users/users.component';
 import {UserComponent} from './components/users/user/user.component';
 import { NewComponent } from './components/users/new/new.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { EditComponent } from './components/users/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     UsersComponent,
     UserComponent,
     NewComponent,
-    NavBarComponent
+    NavBarComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

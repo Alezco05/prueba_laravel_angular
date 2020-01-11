@@ -10,7 +10,10 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
   getUsers() {
-    return this.http.get<any>('http://localhost:8000/api');
+    return this.http.get<User[]>('http://localhost:8000/api');
+  }
+  getUser(id: number) {
+    return this.http.get<User[]>('http://localhost:8000/api/' + id);
   }
   addUser(data: User) {
     return this.http.post('http://127.0.0.1:8000/api', data);
