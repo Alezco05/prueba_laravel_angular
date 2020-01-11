@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center mt-4">
+      <div>
+        <h1>Nuevo Usuario</h1>
+        <form>
+          <table cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field>
+                  <input matInput placeholder="Digite su Nombre" />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <input matInput placeholder="Digite sus apellidos" />
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+
+          <table cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field>
+                  <mat-label>País</mat-label>
+                  <select matNativeControl required>
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                  </select>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>País</mat-label>
+                  <select matNativeControl required>
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                  </select>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field>
+                  <input
+                    matInput
+                    [matDatepicker]="picker"
+                    placeholder="Elija la fecha de Nacimiento"
+                  />
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="picker"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
