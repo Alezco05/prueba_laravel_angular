@@ -3,17 +3,17 @@
     <div class="col-12 d-flex justify-content-center mt-4">
       <div>
         <h1>Nuevo Usuario</h1>
-        <form>
+        <form [formGroup]="form">
           <table cellspacing="0">
             <tr>
               <td>
                 <mat-form-field>
-                  <input matInput placeholder="Digite su Nombre" />
+                  <input matInput placeholder="Digite su Nombre" formControlName="name"/>
                 </mat-form-field>
               </td>
               <td>
                 <mat-form-field>
-                  <input matInput placeholder="Digite sus apellidos" />
+                  <input matInput placeholder="Digite sus apellidos" formControlName="lastname"/>
                 </mat-form-field>
               </td>
             </tr>
@@ -24,7 +24,7 @@
               <td>
                 <mat-form-field>
                   <mat-label>País</mat-label>
-                  <select matNativeControl required>
+                  <select matNativeControl required formControlName="country">
                     <option value="volvo">Volvo</option>
                     <option value="saab">Saab</option>
                     <option value="mercedes">Mercedes</option>
@@ -34,8 +34,8 @@
               </td>
               <td>
                 <mat-form-field>
-                  <mat-label>País</mat-label>
-                  <select matNativeControl required>
+                  <mat-label>Ciudad</mat-label>
+                  <select matNativeControl required formControlName="city">
                     <option value="volvo">Volvo</option>
                     <option value="saab">Saab</option>
                     <option value="mercedes">Mercedes</option>
@@ -51,6 +51,9 @@
                     matInput
                     [matDatepicker]="picker"
                     placeholder="Elija la fecha de Nacimiento"
+                    formControlName="date"
+                    [max]="today"
+                    [min]="min"
                   />
                   <mat-datepicker-toggle
                     matSuffix
@@ -61,6 +64,7 @@
               </td>
             </tr>
           </table>
+          <button mat-button mat-flat-button color="warn" (click)="click()">Borrar</button>
         </form>
       </div>
     </div>

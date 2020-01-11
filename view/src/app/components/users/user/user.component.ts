@@ -15,12 +15,6 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     console.log(this.user);
     }
-    borrarUsuario() {
-      this.userService.removeUser(this.user.id).subscribe(
-        resp => console.log(resp),
-        err => console.log(err)
-      );
-    }
     update() {
       console.log(this.user.id);
       this.router.navigate(['/edit/', this.user.id]);

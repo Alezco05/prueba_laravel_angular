@@ -11,6 +11,7 @@ import {UserComponent} from './components/users/user/user.component';
 import { NewComponent } from './components/users/new/new.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { EditComponent } from './components/users/edit/edit.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { EditComponent } from './components/users/edit/edit.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

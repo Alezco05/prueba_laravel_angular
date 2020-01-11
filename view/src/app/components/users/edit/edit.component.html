@@ -1,7 +1,116 @@
 <div *ngIf="user">
-    <p>{{user.nombre}}</p>
-    <p>{{user.apellidos}}</p>
-    <p>{{user.fechaNacimiento}}</p>
-    <p>{{user.pais}}</p>
-    <p>{{user.ciudad}}</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center mt-4">
+        <div>
+          <h1>Editar Usuario</h1>
+          <form [formGroup]="formulario" class="form">
+            <table cellspacing="0">
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <input
+                      matInput
+                      value="{{ user.nombre }}"
+                      formControlName="name"
+                      class="full-width"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <input
+                      matInput
+                      value="{{ user.apellidos }}"
+                      formControlName="lastname"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+
+            <table cellspacing="0">
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-label>País</mat-label>
+                    <select matNativeControl required formControlName="country">
+                      <option value="{{ user.pais }}" selected>Volvo</option>
+                      <option value="saab">Saab</option>
+                      <option value="mercedes">Mercedes</option>
+                      <option value="audi">Audi</option>
+                    </select>
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field>
+                    <mat-label>Cars</mat-label>
+                    <select matNativeControl required formControlName="city">
+                      <option value="{{ user.ciudad }}">{{
+                        user.ciudad
+                      }}</option>
+                      <option value="saab">Saab</option>
+                      <option value="mercedes">Mercedes</option>
+                      <option value="audi">Audi</option>
+                    </select>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <input
+                      matInput
+                      [matDatepicker]="picker"
+                      placeholder="Elija la fecha de Nacimiento"
+                      formControlName="date"
+                      [max]="today"
+                      [min]="min"
+                      value="{{ user.fechaNacimiento }}"
+                    />
+                    <mat-datepicker-toggle
+                      matSuffix
+                      [for]="picker"
+                    ></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+
+            <table>
+              <tr>
+                <td>
+                  <button
+                    mat-button
+                    mat-flat-button
+                    color="primary"
+                    (click)="click()"
+                    class="btn btn-block"
+                  >
+                    Actualizar
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button
+                    mat-button
+                    mat-flat-button
+                    color="warn"
+                    (click)="click()"
+                    class="btn btn-block"
+                  >
+                    Borrar
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
