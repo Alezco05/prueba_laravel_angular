@@ -1,29 +1,26 @@
 <div class="container">
   <div class="row">
-    <div class="col-2">
-      
-    <mat-form-field>
-      <mat-label>País</mat-label>
-      <mat-select (selectionChange)="selectOpt($event)" required>
-        <mat-option >
-        a  
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div class="col-md-2 col-sm-5">
+    <form>
+      <mat-form-field>
+        <mat-label>Ordenar</mat-label>
+        <mat-select (selectionChange)="ordenarProductos()" name="ordenar" [(ngModel)]="ordenarOption" required>
+          <mat-option *ngFor="let option of options" value="{{option}}">
+            {{option}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
     </div>
-    <div class="col-3">
-      <button
-      mat-stroked-button
-      color="primary"
-      class="mt-2 btn-block"
-      (click)="click()"
-    >
-      Filtrar
-    </button>
+  
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <input type="text" class="form-control" name="filterPost" placeholder="Search..." [(ngModel)]="filterPost">
     </div>
   </div>
   <div class="row" *ngIf="users.length > 0">
-    <div class="col-3" *ngFor="let user of users" >
+    <div class="col-sm-5 col-md-3" *ngFor="let user of users | filter:filterPost" >
       <app-user [user]="user"> </app-user>
     </div>
   </div>
