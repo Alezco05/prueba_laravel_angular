@@ -19,7 +19,6 @@ export class UsersComponent implements OnInit {
     );
      }
      ordenarProductos() {
-       console.log(this.ordenarOption);
        this.usersService.ordernarUser(this.users, this.ordenarOption);
     }
 }

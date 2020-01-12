@@ -14,18 +14,15 @@
     </div>
   
   </div>
-  <div class="row">
-    <div class="col-12">
-      <input type="text" class="form-control" name="filterPost" placeholder="Search..." [(ngModel)]="filterPost">
+  <div class="container">
+    <div class="row" *ngIf="users.length > 0">
+      <div class="col-sm-5 col-md-3" *ngFor="let user of users" >
+        <app-user [user]="user"> </app-user>
+      </div>
+    </div>
+    <div class="row" *ngIf="users.length === 0">
+      <h1>No hay Usuarios</h1>
     </div>
   </div>
-  <div class="row" *ngIf="users.length > 0">
-    <div class="col-sm-5 col-md-3" *ngFor="let user of users | filter:filterPost" >
-      <app-user [user]="user"> </app-user>
-    </div>
   </div>
-  <div class="row" *ngIf="users.length === 0">
-    <h1>No hay Usuarios</h1>
-  </div>
-</div>
 

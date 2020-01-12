@@ -13,6 +13,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { EditComponent } from './components/users/edit/edit.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
+import { FilterComponent } from './components/users/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     NewComponent,
     NavBarComponent,
     EditComponent,
-    FilterPipe
+    FilterPipe,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
