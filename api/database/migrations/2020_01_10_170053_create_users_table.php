@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('apellidos');
+            $table->string('cedula');
             $table->date('fechaNacimiento');
             $table->string('pais');
             $table->string('ciudad');

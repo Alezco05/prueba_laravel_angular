@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-    protected $fillable = ['nombre', 'apellidos', 'fechaNacimiento', 'pais', 'ciudad'];
+    protected $fillable = ['nombre', 'apellidos','cedula', 'fechaNacimiento', 'pais', 'ciudad'];
 }

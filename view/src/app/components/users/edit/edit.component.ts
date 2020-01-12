@@ -18,6 +18,7 @@ export class EditComponent implements OnInit {
   formulario = new FormGroup({
     name: new FormControl('', Validators.required),
     lastname: new FormControl('', Validators.required),
+    cedula: new FormControl('', Validators.required),
     country: new FormControl('', Validators.required),
     city: new FormControl('', Validators.required),
   });
@@ -50,6 +51,7 @@ export class EditComponent implements OnInit {
       // tslint:disable: no-string-literal
       this.formulario.controls.name.setValue(this.user['nombre'].toString());
       this.formulario.controls.lastname.setValue(this.user['apellidos'].toString());
+      this.formulario.controls.cedula.setValue(this.user['cedula']);
       this.formulario.controls.country.setValue(this.user['pais'].toString());
       this.formulario.controls.city.setValue(this.user['ciudad'].toString());
     }
@@ -77,6 +79,7 @@ export class EditComponent implements OnInit {
       id: this.user['id'],
       nombre: this.formulario.value.name,
       apellidos: this.formulario.value.lastname,
+      cedula: this.formulario.value.cedula,
       fechaNacimiento: date,
       pais,
       ciudad: this.formulario.value.city

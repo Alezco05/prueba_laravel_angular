@@ -1,6 +1,29 @@
 <div class="container">
+  <div class="row">
+    <div class="col-2">
+      
+    <mat-form-field>
+      <mat-label>País</mat-label>
+      <mat-select (selectionChange)="selectOpt($event)" required>
+        <mat-option >
+        a  
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    </div>
+    <div class="col-3">
+      <button
+      mat-stroked-button
+      color="primary"
+      class="mt-2 btn-block"
+      (click)="click()"
+    >
+      Filtrar
+    </button>
+    </div>
+  </div>
   <div class="row" *ngIf="users.length > 0">
-    <div class="col-4" *ngFor="let user of users" >
+    <div class="col-3" *ngFor="let user of users" >
       <app-user [user]="user"> </app-user>
     </div>
   </div>

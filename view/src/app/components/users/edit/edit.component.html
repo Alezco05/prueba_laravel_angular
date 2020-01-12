@@ -27,6 +27,21 @@
                   </mat-form-field>
                 </td>
               </tr>
+              <tr>
+                <td>
+                <mat-form-field>
+                  <input
+                    matInput
+                    type="number"
+                    placeholder="Digite su cedula"
+                    formControlName="cedula"
+                  />
+                  <div *ngIf="submitted && f.cedula.errors" class="text-danger">
+                    <div *ngIf="f.cedula.errors.required"><small>Cedula Requerido</small></div>
+                </div>
+                </mat-form-field>
+              </td>
+            </tr>
             </table>
 
             <table cellspacing="0">
@@ -50,6 +65,7 @@
                   </mat-form-field>
                 </td>
               </tr>
+              
             </table>
 
             <table>

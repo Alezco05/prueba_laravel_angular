@@ -40,6 +40,7 @@ export class NewComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
       lastname: ['', Validators.required],
+      cedula: ['', Validators.required],
       country: ['', Validators.required],
       city: ['', Validators.required],
       date: ['', Validators.required]
@@ -55,6 +56,7 @@ export class NewComponent implements OnInit {
     const data = {
       nombre: this.form.value.name,
       apellidos: this.form.value.lastname,
+      cedula: this.form.value.cedula,
       fechaNacimiento: date,
       pais: this.form.value.country.pais,
       ciudad: this.form.value.city
