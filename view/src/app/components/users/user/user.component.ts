@@ -15,7 +15,6 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     }
     update() {
-      console.log(this.user.id);
       this.router.navigate(['/edit/', this.user.id]);
     }
 }

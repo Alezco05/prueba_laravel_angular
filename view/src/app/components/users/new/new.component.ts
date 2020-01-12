@@ -76,7 +76,6 @@ export class NewComponent implements OnInit {
       resp => {
         this.cities = resp;
         this.cities = this.cities.filter(cit => cit.country === e.value.codigo);
-        console.log(this.cities)
       },
       err => console.log(err)
     );
