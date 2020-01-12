@@ -11,7 +11,6 @@
                   <mat-form-field>
                     <input
                       matInput
-                      value="{{ user.nombre }}"
                       formControlName="name"
                       class="full-width"
                     />
@@ -23,7 +22,6 @@
                   <mat-form-field>
                     <input
                       matInput
-                      value="{{ user.apellidos }}"
                       formControlName="lastname"
                     />
                   </mat-form-field>
@@ -36,45 +34,19 @@
                 <td>
                   <mat-form-field>
                     <mat-label>País</mat-label>
-                    <select matNativeControl required formControlName="country">
-                      <option value="{{ user.pais }}" selected>Volvo</option>
-                      <option value="saab">Saab</option>
-                      <option value="mercedes">Mercedes</option>
-                      <option value="audi">Audi</option>
-                    </select>
+                    <mat-select formControlName="country" (selectionChange)="selectOpt($event)" required>
+                      <mat-option *ngFor="let country of countries" [value]="{codigo :country.alpha2Code, pais: country.name}">
+                        {{country.name}}
+                      </mat-option>
+                    </mat-select>
                   </mat-form-field>
                 </td>
                 <td>
-                  <mat-form-field>
-                    <mat-label>Cars</mat-label>
+                  <mat-form-field *ngIf="selected">
+                    <mat-label>Ciudad</mat-label>
                     <select matNativeControl required formControlName="city">
-                      <option value="{{ user.ciudad }}">{{
-                        user.ciudad
-                      }}</option>
-                      <option value="saab">Saab</option>
-                      <option value="mercedes">Mercedes</option>
-                      <option value="audi">Audi</option>
+                   <option *ngFor="let city of cities" [value]="city.name">{{city.name}}</option>
                     </select>
-                  </mat-form-field>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <mat-form-field>
-                    <input
-                      matInput
-                      [matDatepicker]="picker"
-                      placeholder="Elija la fecha de Nacimiento"
-                      formControlName="date"
-                      [max]="today"
-                      [min]="min"
-                      value="{{ user.fechaNacimiento }}"
-                    />
-                    <mat-datepicker-toggle
-                      matSuffix
-                      [for]="picker"
-                    ></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
                   </mat-form-field>
                 </td>
               </tr>
@@ -87,7 +59,7 @@
                     mat-button
                     mat-flat-button
                     color="primary"
-                    (click)="click()"
+                    (click)="updateUser()"
                     class="btn btn-block"
                   >
                     Actualizar
@@ -100,7 +72,7 @@
                     mat-button
                     mat-flat-button
                     color="warn"
-                    (click)="click()"
+                    (click)="deleteUser()"
                     class="btn btn-block"
                   >
                     Borrar

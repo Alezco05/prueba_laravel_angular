@@ -8,38 +8,50 @@
             <tr>
               <td>
                 <mat-form-field>
-                  <input matInput placeholder="Digite su Nombre" formControlName="name"/>
+                  <input
+                    matInput
+                    placeholder="Digite su Nombre"
+                    formControlName="name"
+                  />
+                  <div *ngIf="submitted && f.name.errors" class="text-danger">
+                    <div *ngIf="f.name.errors.required"><small>Nombre Requerido</small></div>
+                </div>
                 </mat-form-field>
               </td>
               <td>
                 <mat-form-field>
-                  <input matInput placeholder="Digite sus apellidos" formControlName="lastname"/>
+                  <input
+                    matInput
+                    placeholder="Digite sus apellidos"
+                    formControlName="lastname"
+                  />
+                  <div *ngIf="submitted && f.lastname.errors" class="text-danger">
+                    <div *ngIf="f.lastname.errors.required"><small>Apellido Requerido</small></div>
+                </div>
                 </mat-form-field>
               </td>
             </tr>
           </table>
-
           <table cellspacing="0">
             <tr>
               <td>
                 <mat-form-field>
                   <mat-label>País</mat-label>
-                  <select matNativeControl required formControlName="country">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
-                  </select>
+                  <mat-select (selectionChange)="selectOpt($event)" required formControlName="country">
+                    <mat-option *ngFor="let country of countries" [value]="{codigo :country.alpha2Code, pais: country.name}">
+                      {{country.name}}
+                    </mat-option>
+                  </mat-select>
+                  <div *ngIf="submitted && f.country.errors" class="text-danger">
+                    <div *ngIf="f.country.errors.required"><small>Pais Requerido</small></div>
+                </div>
                 </mat-form-field>
               </td>
               <td>
-                <mat-form-field>
+                <mat-form-field *ngIf="selected">
                   <mat-label>Ciudad</mat-label>
                   <select matNativeControl required formControlName="city">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
+                 <option *ngFor="let city of cities" [value]="city.name">{{city.name}}</option>
                   </select>
                 </mat-form-field>
               </td>
@@ -55,6 +67,9 @@
                     [max]="today"
                     [min]="min"
                   />
+                  <div *ngIf="submitted && f.date.errors" class="text-danger">
+                    <div *ngIf="f.date.errors.required"><small>Fecha de Nacimiento Requerida</small></div>
+                </div>
                   <mat-datepicker-toggle
                     matSuffix
                     [for]="picker"
@@ -64,7 +79,15 @@
               </td>
             </tr>
           </table>
-          <button mat-button mat-flat-button color="warn" (click)="click()">Borrar</button>
+          <button
+            mat-button
+            mat-flat-button
+            color="primary"
+            class="btn btn-block"
+            (click)="click()"
+          >
+            Agregar Usuario
+          </button>
         </form>
       </div>
     </div>

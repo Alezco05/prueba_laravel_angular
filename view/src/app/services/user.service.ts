@@ -12,6 +12,12 @@ export class UserService {
   getUsers() {
     return this.http.get<User[]>('http://localhost:8000/api');
   }
+  getCountry() {
+    return this.http.get('/assets/county.json');
+  }
+  getCity() {
+    return this.http.get('https://raw.githubusercontent.com/lutangar/cities.json/master/cities.json');
+  }
   getUser(id: number) {
     return this.http.get<User[]>('http://localhost:8000/api/' + id);
   }
